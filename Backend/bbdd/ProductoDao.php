@@ -1,6 +1,7 @@
 <?php
 
 namespace AiMi\Bbdd;
+<<<<<<< HEAD
 
 use AiMi\Models\Producto;
 use AiMi\Models\Categoria;
@@ -77,3 +78,14 @@ class ProductoDao
         return $productos;
     }
 }
+=======
+use AiMi\Models\Producto;
+
+class ProductoDao {
+    public function findAll() 
+    {
+        return Producto::all();
+    }
+}
+?>
+>>>>>>> e440577c052fb8426acd5e4503936d09272e5d47

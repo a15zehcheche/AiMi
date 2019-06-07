@@ -32,10 +32,11 @@ class ActionsRoutes
         $router->get($prefix . '/categorias', function () {
             return (new CategoriaManager())->findAll();
         });
+
+        
         $router->get($prefix . '/generos', function () {
             return (new GeneroManager())->findAll();
         });
-
     }
 }
 ?>
