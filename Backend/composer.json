@@ -1,0 +1,28 @@
+{
+    "name": "chen/ai-mi",
+    "require": {
+        "illuminate/database": "^5.8",
+        "phroute/phroute": "^2.1",
+        "ext-json": "^1.7",
+        "twig/twig": "^2.11"
+    },
+    "authors": [
+        {
+            "name": "ZehaoChen",
+            "email": "a15zehcheche@iam.cat"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+          "AiMi\\": "./",
+          "AiMi\\Routes\\": "./routes",
+          "AiMi\\Models\\": "./models",
+          "AiMi\\Controller\\": "./controller",
+          "AiMi\\Bbdd\\": "./bbdd",
+          "AiMi\\Constants\\": "./constants"
+        },
+        "classmap": [
+          "models"
+        ]
+      }
+}
