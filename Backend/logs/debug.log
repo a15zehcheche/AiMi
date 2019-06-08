@@ -1,1 +1,65 @@
 
+[Sat 08 Jun 2019 - 00:57 AM]: {"withTimestamps":false}
+[Sat 08 Jun 2019 - 00:57 AM]: {"withTimestamps":false}
+[Sat 08 Jun 2019 - 00:57 AM]: {"withTimestamps":false}
+[Sat 08 Jun 2019 - 01:03 AM]: {"withTimestamps":false}
+[Sat 08 Jun 2019 - 01:03 AM]: {"withTimestamps":false}
+[Sat 08 Jun 2019 - 01:03 AM]: {"withTimestamps":false}
+[Sat 08 Jun 2019 - 01:09 AM]: {"withTimestamps":false}
+[Sat 08 Jun 2019 - 01:09 AM]: {"withTimestamps":false}
+[Sat 08 Jun 2019 - 01:09 AM]: {"withTimestamps":false}
+[Sat 08 Jun 2019 - 01:16 AM]: {"ID":1,"CODIGO_BARRA":1234567891234,"CODIGO_PRODUCTO":"XZ121","DESCRIPCION":"ZABATO","PRECIO_COMPRA":"45.20","PVP":"86.20","CANTIDAD_PACK":12,"STOCK":100,"AVISO_STOCK":10,"photo_path":"","config":null,"created_at":"2019-06-07 02:34:42","updated_at":"2019-06-07 02:34:42","ID_GENERO":1,"ID_CATEGORIA":1,"tallas":[]}
+[Sat 08 Jun 2019 - 01:19 AM]: []
+[Sat 08 Jun 2019 - 01:19 AM]: []
+[Sat 08 Jun 2019 - 01:19 AM]: []
+[Sat 08 Jun 2019 - 01:19 AM]: []
+[Sat 08 Jun 2019 - 01:20 AM]: []
+[Sat 08 Jun 2019 - 01:20 AM]: []
+[Sat 08 Jun 2019 - 01:20 AM]: []
+[Sat 08 Jun 2019 - 01:20 AM]: []
+[Sat 08 Jun 2019 - 01:20 AM]: []
+[Sat 08 Jun 2019 - 01:21 AM]: []
+[Sat 08 Jun 2019 - 01:21 AM]: []
+[Sat 08 Jun 2019 - 01:21 AM]: []
+[Sat 08 Jun 2019 - 01:21 AM]: []
+[Sat 08 Jun 2019 - 01:21 AM]: []
+[Sat 08 Jun 2019 - 01:21 AM]: 
+[Sat 08 Jun 2019 - 01:21 AM]: 
+[Sat 08 Jun 2019 - 01:26 AM]: []
+[Sat 08 Jun 2019 - 01:26 AM]: []
+[Sat 08 Jun 2019 - 01:26 AM]: []
+[Sat 08 Jun 2019 - 01:26 AM]: []
+[Sat 08 Jun 2019 - 01:26 AM]: []
+[Sat 08 Jun 2019 - 01:26 AM]: []
+[Sat 08 Jun 2019 - 01:26 AM]: []
+[Sat 08 Jun 2019 - 01:26 AM]: []
+[Sat 08 Jun 2019 - 01:30 AM]: []
+[Sat 08 Jun 2019 - 01:33 AM]: []
+[Sat 08 Jun 2019 - 01:33 AM]: []
+[Sat 08 Jun 2019 - 01:33 AM]: []
+[Sat 08 Jun 2019 - 01:33 AM]: []
+[Sat 08 Jun 2019 - 01:33 AM]: []
+[Sat 08 Jun 2019 - 01:35 AM]: []
+[Sat 08 Jun 2019 - 01:35 AM]: []
+[Sat 08 Jun 2019 - 01:35 AM]: []
+[Sat 08 Jun 2019 - 01:43 AM]: []
+[Sat 08 Jun 2019 - 01:43 AM]: []
+[Sat 08 Jun 2019 - 01:43 AM]: []
+[Sat 08 Jun 2019 - 01:43 AM]: []
+[Sat 08 Jun 2019 - 01:43 AM]: []
+[Sat 08 Jun 2019 - 01:43 AM]: []
+[Sat 08 Jun 2019 - 01:52 AM]: [{"ID":1,"TEXTO":"S","config":null,"created_at":"2019-06-08 00:37:01","updated_at":"2019-06-08 00:37:01","pivot":{"ID_TALLA":1,"ID_PRODUCTO":1}},{"ID":2,"TEXTO":"M","config":null,"created_at":"2019-06-08 00:37:11","updated_at":"2019-06-08 00:37:11","pivot":{"ID_TALLA":1,"ID_PRODUCTO":2}}]
+[Sat 08 Jun 2019 - 01:52 AM]: [{"ID":1,"TEXTO":"S","config":null,"created_at":"2019-06-08 00:37:01","updated_at":"2019-06-08 00:37:01","pivot":{"ID_TALLA":1,"ID_PRODUCTO":1}},{"ID":2,"TEXTO":"M","config":null,"created_at":"2019-06-08 00:37:11","updated_at":"2019-06-08 00:37:11","pivot":{"ID_TALLA":1,"ID_PRODUCTO":2}}]
+[Sat 08 Jun 2019 - 01:52 AM]: [{"ID":1,"TEXTO":"S","config":null,"created_at":"2019-06-08 00:37:01","updated_at":"2019-06-08 00:37:01","pivot":{"ID_TALLA":1,"ID_PRODUCTO":1}},{"ID":2,"TEXTO":"M","config":null,"created_at":"2019-06-08 00:37:11","updated_at":"2019-06-08 00:37:11","pivot":{"ID_TALLA":1,"ID_PRODUCTO":2}}]
+[Sat 08 Jun 2019 - 01:52 AM]: [{"ID":1,"TEXTO":"S","config":null,"created_at":"2019-06-08 00:37:01","updated_at":"2019-06-08 00:37:01","pivot":{"ID_TALLA":1,"ID_PRODUCTO":1}},{"ID":2,"TEXTO":"M","config":null,"created_at":"2019-06-08 00:37:11","updated_at":"2019-06-08 00:37:11","pivot":{"ID_TALLA":1,"ID_PRODUCTO":2}}]
+[Sat 08 Jun 2019 - 01:53 AM]: [{"ID":1,"TEXTO":"S","config":null,"created_at":"2019-06-08 00:37:01","updated_at":"2019-06-08 00:37:01","pivot":{"ID_TALLA":2,"ID_PRODUCTO":1}}]
+[Sat 08 Jun 2019 - 01:53 AM]: [{"ID":1,"TEXTO":"S","config":null,"created_at":"2019-06-08 00:37:01","updated_at":"2019-06-08 00:37:01","pivot":{"ID_TALLA":2,"ID_PRODUCTO":1}}]
+[Sat 08 Jun 2019 - 01:53 AM]: [{"ID":1,"TEXTO":"S","config":null,"created_at":"2019-06-08 00:37:01","updated_at":"2019-06-08 00:37:01","pivot":{"ID_TALLA":1,"ID_PRODUCTO":1}},{"ID":2,"TEXTO":"M","config":null,"created_at":"2019-06-08 00:37:11","updated_at":"2019-06-08 00:37:11","pivot":{"ID_TALLA":1,"ID_PRODUCTO":2}}]
+[Sat 08 Jun 2019 - 01:54 AM]: [{"ID":1,"TEXTO":"S","config":null,"created_at":"2019-06-08 00:37:01","updated_at":"2019-06-08 00:37:01","pivot":{"ID_TALLA":1,"ID_PRODUCTO":1}},{"ID":2,"TEXTO":"M","config":null,"created_at":"2019-06-08 00:37:11","updated_at":"2019-06-08 00:37:11","pivot":{"ID_TALLA":1,"ID_PRODUCTO":2}}]
+[Sat 08 Jun 2019 - 01:55 AM]: [{"ID":1,"TEXTO":"S","config":null,"created_at":"2019-06-08 00:37:01","updated_at":"2019-06-08 00:37:01","pivot":{"ID_PRODUCTO":1,"ID_TALLA":1}},{"ID":2,"TEXTO":"M","config":null,"created_at":"2019-06-08 00:37:11","updated_at":"2019-06-08 00:37:11","pivot":{"ID_PRODUCTO":1,"ID_TALLA":2}},{"ID":3,"TEXTO":"L","config":null,"created_at":"2019-06-08 00:37:17","updated_at":"2019-06-08 00:37:17","pivot":{"ID_PRODUCTO":1,"ID_TALLA":3}}]
+[Sat 08 Jun 2019 - 01:56 AM]: {"ID":1,"CODIGO_BARRA":1234567891234,"CODIGO_PRODUCTO":"XZ121","DESCRIPCION":"ZABATO","PRECIO_COMPRA":"45.20","PVP":"86.20","CANTIDAD_PACK":12,"STOCK":100,"AVISO_STOCK":10,"photo_path":"","config":null,"created_at":"2019-06-07 02:34:42","updated_at":"2019-06-07 02:34:42","ID_GENERO":1,"ID_CATEGORIA":1,"tallas":[{"ID":1,"TEXTO":"S","config":null,"created_at":"2019-06-08 00:37:01","updated_at":"2019-06-08 00:37:01","pivot":{"ID_PRODUCTO":1,"ID_TALLA":1}},{"ID":2,"TEXTO":"M","config":null,"created_at":"2019-06-08 00:37:11","updated_at":"2019-06-08 00:37:11","pivot":{"ID_PRODUCTO":1,"ID_TALLA":2}},{"ID":3,"TEXTO":"L","config":null,"created_at":"2019-06-08 00:37:17","updated_at":"2019-06-08 00:37:17","pivot":{"ID_PRODUCTO":1,"ID_TALLA":3}}]}
+[Sat 08 Jun 2019 - 01:57 AM]: {"ID":1,"CODIGO_BARRA":1234567891234,"CODIGO_PRODUCTO":"XZ121","DESCRIPCION":"ZABATO","PRECIO_COMPRA":"45.20","PVP":"86.20","CANTIDAD_PACK":12,"STOCK":100,"AVISO_STOCK":10,"photo_path":"","config":null,"created_at":"2019-06-07 02:34:42","updated_at":"2019-06-07 02:34:42","ID_GENERO":1,"ID_CATEGORIA":1,"tallas":[{"ID":1,"TEXTO":"S","config":null,"created_at":"2019-06-08 00:37:01","updated_at":"2019-06-08 00:37:01","pivot":{"ID_PRODUCTO":1,"ID_TALLA":1}},{"ID":2,"TEXTO":"M","config":null,"created_at":"2019-06-08 00:37:11","updated_at":"2019-06-08 00:37:11","pivot":{"ID_PRODUCTO":1,"ID_TALLA":2}},{"ID":3,"TEXTO":"L","config":null,"created_at":"2019-06-08 00:37:17","updated_at":"2019-06-08 00:37:17","pivot":{"ID_PRODUCTO":1,"ID_TALLA":3}}]}
+[Sat 08 Jun 2019 - 02:07 AM]: [{"ID":1,"TEXTO":"S","config":null,"created_at":"2019-06-08 00:37:01","updated_at":"2019-06-08 00:37:01","pivot":{"ID_PRODUCTO":1,"ID_TALLA":1}},{"ID":2,"TEXTO":"M","config":null,"created_at":"2019-06-08 00:37:11","updated_at":"2019-06-08 00:37:11","pivot":{"ID_PRODUCTO":1,"ID_TALLA":2}},{"ID":3,"TEXTO":"L","config":null,"created_at":"2019-06-08 00:37:17","updated_at":"2019-06-08 00:37:17","pivot":{"ID_PRODUCTO":1,"ID_TALLA":3}}]
+[Sat 08 Jun 2019 - 02:07 AM]: [{"ID":1,"TEXTO":"S","config":null,"created_at":"2019-06-08 00:37:01","updated_at":"2019-06-08 00:37:01","pivot":{"ID_PRODUCTO":1,"ID_TALLA":1}},{"ID":2,"TEXTO":"M","config":null,"created_at":"2019-06-08 00:37:11","updated_at":"2019-06-08 00:37:11","pivot":{"ID_PRODUCTO":1,"ID_TALLA":2}},{"ID":3,"TEXTO":"L","config":null,"created_at":"2019-06-08 00:37:17","updated_at":"2019-06-08 00:37:17","pivot":{"ID_PRODUCTO":1,"ID_TALLA":3}}]
+[Sat 08 Jun 2019 - 02:07 AM]: [{"ID":1,"TEXTO":"S","config":null,"created_at":"2019-06-08 00:37:01","updated_at":"2019-06-08 00:37:01","pivot":{"ID_PRODUCTO":1,"ID_TALLA":1}},{"ID":2,"TEXTO":"M","config":null,"created_at":"2019-06-08 00:37:11","updated_at":"2019-06-08 00:37:11","pivot":{"ID_PRODUCTO":1,"ID_TALLA":2}},{"ID":3,"TEXTO":"L","config":null,"created_at":"2019-06-08 00:37:17","updated_at":"2019-06-08 00:37:17","pivot":{"ID_PRODUCTO":1,"ID_TALLA":3}}]
+[Sat 08 Jun 2019 - 02:11 AM]: [{"ID":1,"TEXTO":"S","config":null,"created_at":"2019-06-08 00:37:01","updated_at":"2019-06-08 00:37:01","pivot":{"ID_PRODUCTO":1,"ID_TALLA":1}},{"ID":2,"TEXTO":"M","config":null,"created_at":"2019-06-08 00:37:11","updated_at":"2019-06-08 00:37:11","pivot":{"ID_PRODUCTO":1,"ID_TALLA":2}},{"ID":3,"TEXTO":"L","config":null,"created_at":"2019-06-08 00:37:17","updated_at":"2019-06-08 00:37:17","pivot":{"ID_PRODUCTO":1,"ID_TALLA":3}}]

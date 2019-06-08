@@ -11,13 +11,15 @@ class ProductoDao
 {
     public function findAll()
     {
-        //Logger::debug($this->computerProductos(Producto::all()));
-        return $this->computerProductos(Producto::all());
+        //Logger::debug($this->computerProductos(Producto::all()[0]->tallas));
+
+        return $this->computerProductos($this->setTallas(Producto::all()));
     }
 
     public function findById($id)
     {
-        return $this->computerProducto(Producto::find($id));
+        //Logger::debug(Producto::with('tallas')->find($id));
+        return $this->computerProducto(Producto::with('tallas')->find($id));
     }
 
     public function save(Producto $producto)
@@ -33,10 +35,10 @@ class ProductoDao
     {
         $categorias = Categoria::all();
         $generos = Genero::all();
-        if(!$producto){
+        if (!$producto) {
             return [
                 'done' => false,
-                'message' =>'producto no encontrado'
+                'message' => 'producto no encontrado'
             ];
         }
         $searchedValue = $producto->ID_GENERO;
@@ -73,6 +75,14 @@ class ProductoDao
                     $producto->ID_CATEGORIA = $categoria->TEXTO;
                 }
             }
+        }
+        return $productos;
+    }
+
+    public function setTallas($productos)
+    {
+        foreach ($productos as $producto) {
+            $producto->tallas = $producto->tallas;
         }
         return $productos;
     }

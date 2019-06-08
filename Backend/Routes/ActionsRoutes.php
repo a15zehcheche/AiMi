@@ -5,6 +5,7 @@ use Phroute\Phroute\RouteCollector;
 use AiMi\Controller\ProductoManager;
 use AiMi\Controller\CategoriaManager;
 use AiMi\Controller\GeneroManager;
+use AiMi\Controller\TallaManager;
 
 class ActionsRoutes
 {
@@ -36,6 +37,10 @@ class ActionsRoutes
         
         $router->get($prefix . '/generos', function () {
             return (new GeneroManager())->findAll();
+        });
+        
+        $router->get($prefix . '/tallas', function () {
+            return (new TallaManager())->findAll();
         });
     }
 }

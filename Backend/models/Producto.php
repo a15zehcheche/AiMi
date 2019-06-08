@@ -6,9 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Producto extends Model
 {
+    protected $primaryKey = 'ID';
     protected $table = 'PRODUCTO';
 
     public $timestamps = true;
+
+    /**
+     * @return belongsToMany
+     */
+    public function tallas()
+    {
+        return $this->belongsToMany('AiMi\Models\Talla', 'PRODUCTO_TALLA', 'ID_PRODUCTO', 'ID_TALLA');
+    }
 
     /*protected $fillable = [
         'id', 'name', 'active'
