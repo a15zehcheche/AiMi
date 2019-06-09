@@ -27,9 +27,9 @@ class ProductoDao
         return $producto->save();
     }
 
-    public function delete($id)
+    public function delete(Producto $producto)
     {
-        return $this->findById($id)->delete();
+        return $producto->delete();
     }
     public function computerProducto($producto)
     {

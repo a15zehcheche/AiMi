@@ -18,8 +18,9 @@ class CategoriaDao {
         return $categoria->save();
     }
 
-    public function delete($id) {
-        return $this->findById($id)->delete();
+    public function delete(Categoria $categoria) 
+    {
+        return $categoria->delete();
     }
 }
 ?>

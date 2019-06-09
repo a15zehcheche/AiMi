@@ -96,4 +96,16 @@ class ProductoManager
             );
         }
     }
+
+    public function delete($id){
+        $producto = $this->productoDao->findById($id);
+
+        if (!$producto) {
+            return [
+                'done' => false
+            ];
+        }
+
+        return array("done" => $this->publicityDao->delete($producto));
+    }
 }
