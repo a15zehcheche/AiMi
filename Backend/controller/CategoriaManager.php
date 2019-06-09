@@ -32,6 +32,35 @@ class CategoriaManager
             );
         }
     }
+    public function update($body, $id)
+    {
+        $genero = Categoria::find($id);
+
+        if (!$genero) {
+            return [
+                'done' => false
+            ];
+        }
+        try {
+            if (array_key_exists('TEXTO', (array)$body)) {
+                $genero->TEXTO =  $body->TEXTO;
+            } else {
+                return array(
+                    'done' => false,
+                    'message' => 'Require TEXTO'
+                );
+            }
+            return array(
+                'done' => $this->categoriaDao->save($genero)
+            );
+        } catch (\Exception $e) {
+            return array(
+                'done' => false,
+                'err' => $e->getMessage(),
+            );
+        }
+    }
+
     public function delete($id)
     {
         $categoria = $this->categoriaDao->findById($id);

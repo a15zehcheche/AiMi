@@ -47,6 +47,22 @@ class ActionsRoutes
             $body = json_decode($body);
             return (new ProductoManager())->save($body);
         });
+        $router->put($prefix.'/producto/{id}',function($id){
+            $body = file_get_contents('php://input');
+            $body = json_decode($body);
+            return (new ProductoManager())->update($body,$id);
+        });
+        $router->delete($prefix . '/producto/{id}', function ($id) {
+            return (new ProductoManager())->delete($id);
+        });
+        $router->post($prefix.'/addProductosStock',function(){
+            $body = file_get_contents('php://input');
+            $body = json_decode($body);
+            return (new ProductoManager())->addStock($body);
+        });
+
+       
+
 
 
         $router->get($prefix . '/productosTallas', function () {
@@ -73,6 +89,11 @@ class ActionsRoutes
             $body = json_decode($body);
             return (new CategoriaManager())->save($body);
         });
+        $router->put($prefix.'/categoria/{id}',function($id){
+            $body = file_get_contents('php://input');
+            $body = json_decode($body);
+            return (new CategoriaManager())->update($body,$id);
+        });
         $router->delete($prefix . '/categoria/{id}', function ($id) {
             return (new CategoriaManager())->delete($id);
         });
@@ -87,6 +108,11 @@ class ActionsRoutes
             $body = json_decode($body);
             return (new GeneroManager())->save($body);
         });
+        $router->put($prefix.'/genero/{id}',function($id){
+            $body = file_get_contents('php://input');
+            $body = json_decode($body);
+            return (new GeneroManager())->update($body,$id);
+        });
         $router->delete($prefix . '/genero/{id}', function ($id) {
             return (new GeneroManager())->delete($id);
         });
@@ -95,5 +121,19 @@ class ActionsRoutes
         $router->get($prefix . '/tallas', function () {
             return (new TallaManager())->findAll();
         });
+        $router->post($prefix . '/talla', function () {
+            $body = file_get_contents('php://input');
+            $body = json_decode($body);
+            return (new TallaManager())->save($body);
+        });
+        $router->put($prefix.'/talla/{id}',function($id){
+            $body = file_get_contents('php://input');
+            $body = json_decode($body);
+            return (new TallaManager())->update($body,$id);
+        });
+        $router->delete($prefix . '/talla/{id}', function ($id) {
+            return (new TallaManager())->delete($id);
+        });
+
     }
 }
