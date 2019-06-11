@@ -1,13 +1,16 @@
 <?php
 namespace AiMi\Routes;
 
+use AiMi\Constants\ConstantsDB;
 use Phroute\Phroute\RouteCollector;
 use AiMi\Controller\ProductoManager;
 use AiMi\Controller\CategoriaManager;
 Use AiMi\Controller\ProductoTallaManager;
 use AiMi\Controller\GeneroManager;
 use AiMi\Controller\TallaManager;
-use AiMi\Constants\ConstantsDB;
+use AiMi\Controller\ClienteManager;
+use AiMi\Controller\ComercialManager;
+
 class ActionsRoutes
 {
     public static function manageRoutes(RouteCollector $router)
@@ -34,7 +37,9 @@ class ActionsRoutes
             return 'done ' . $output;
         });
 
-
+        // -----------------------------------------------------------------
+        // --------------------------- PRODUCTOS ---------------------------
+        // -----------------------------------------------------------------
 
         $router->get($prefix . '/productos', function () {
             return (new ProductoManager())->findAll();
@@ -62,7 +67,9 @@ class ActionsRoutes
         });
 
        
-
+        // -----------------------------------------------------------------
+        // ------------------------ PRODUCTOS TALLA ------------------------
+        // -----------------------------------------------------------------
 
 
         $router->get($prefix . '/productosTallas', function () {
@@ -80,6 +87,9 @@ class ActionsRoutes
             return (new ProductoTallaManager())->delete($idP,$idT);
         });
 
+        // -----------------------------------------------------------------
+        // --------------------------- CATEGORIA ---------------------------
+        // -----------------------------------------------------------------
 
         $router->get($prefix . '/categorias', function () {
             return (new CategoriaManager())->findAll();
@@ -98,6 +108,9 @@ class ActionsRoutes
             return (new CategoriaManager())->delete($id);
         });
         
+        // -----------------------------------------------------------------
+        // ---------------------------- GENEROS ----------------------------
+        // -----------------------------------------------------------------
 
         
         $router->get($prefix . '/generos', function () {
@@ -116,7 +129,11 @@ class ActionsRoutes
         $router->delete($prefix . '/genero/{id}', function ($id) {
             return (new GeneroManager())->delete($id);
         });
-        
+
+
+        // -----------------------------------------------------------------
+        // ---------------------------- TALLAS -----------------------------
+        // -----------------------------------------------------------------
 
         $router->get($prefix . '/tallas', function () {
             return (new TallaManager())->findAll();
@@ -135,5 +152,44 @@ class ActionsRoutes
             return (new TallaManager())->delete($id);
         });
 
+        // -----------------------------------------------------------------
+        // --------------------------- CLIENTES ----------------------------
+        // -----------------------------------------------------------------
+        $router->get($prefix . '/clientes', function () {
+            return (new ClienteManager())->findAll();
+        });
+        $router->post($prefix . '/cliente', function () {
+            $body = file_get_contents('php://input');
+            $body = json_decode($body);
+            return (new ClienteManager())->save($body);
+        });
+        $router->put($prefix.'/cliente/{id}',function($id){
+            $body = file_get_contents('php://input');
+            $body = json_decode($body);
+            return (new ClienteManager())->update($body,$id);
+        });
+        $router->delete($prefix . '/cliente/{id}', function ($id) {
+            return (new ClienteManager())->delete($id);
+        });
+
+        // -----------------------------------------------------------------
+        // --------------------------- COMERCIALS --------------------------
+        // -----------------------------------------------------------------
+        $router->get($prefix . '/comercials', function () {
+            return (new ComercialManager())->findAll();
+        });
+        $router->post($prefix . '/comercial', function () {
+            $body = file_get_contents('php://input');
+            $body = json_decode($body);
+            return (new ComercialManager())->save($body);
+        });
+        $router->put($prefix.'/comercial/{id}',function($id){
+            $body = file_get_contents('php://input');
+            $body = json_decode($body);
+            return (new ComercialManager())->update($body,$id);
+        });
+        $router->delete($prefix . '/comercial/{id}', function ($id) {
+            return (new ComercialManager())->delete($id);
+        });
     }
 }
