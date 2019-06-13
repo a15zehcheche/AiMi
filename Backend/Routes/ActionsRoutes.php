@@ -157,6 +157,7 @@ class ActionsRoutes
             if(isset($_SESSION["USUARI_NOMBRE"]) && isset($_SESSION["PERMISO"])){
                 unset($_SESSION["USUARI_NOMBRE"]);
                 unset($_SESSION["PERMISO"]);
+                header('Location: http://localhost:8000/login');
                 return [
                     "done" => true
                 ];

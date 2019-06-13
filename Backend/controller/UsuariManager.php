@@ -22,7 +22,7 @@ class UsuariManager
         try {
             $usauri = new Usuari();
             $usauri->USUARI_NOMBRE =  $body->USUARI_NOMBRE;
-            $usauri->USUARI_PASSWORD =  $body->USUARI_PASSWORD;
+            $usauri->USUARI_PASSWORD =  md5($body->USUARI_PASSWORD);
             $usauri->NOMBRE = $body->NOMBRE;
             $usauri->PERMISO =  $body->PERMISO;
             return array(
@@ -87,7 +87,7 @@ class UsuariManager
         $usuari = Usuari::where('USUARI_NOMBRE','=', $user_name)
             ->first();
 
-        if($usuari->USUARI_PASSWORD == $user_password ){
+        if($usuari->USUARI_PASSWORD == md5($user_password) ){
             session_start();
             $_SESSION["USUARI_NOMBRE"]= $usuari->USUARI_NOMBRE;
             $_SESSION["PERMISO"]= $usuari->PERMISO;
