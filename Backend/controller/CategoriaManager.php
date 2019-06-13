@@ -34,16 +34,16 @@ class CategoriaManager
     }
     public function update($body, $id)
     {
-        $genero = Categoria::find($id);
+        $categoria = Categoria::find($id);
 
-        if (!$genero) {
+        if (!$categoria) {
             return [
                 'done' => false
             ];
         }
         try {
             if (array_key_exists('TEXTO', (array)$body)) {
-                $genero->TEXTO =  $body->TEXTO;
+                $categoria->TEXTO =  $body->TEXTO;
             } else {
                 return array(
                     'done' => false,
@@ -51,7 +51,7 @@ class CategoriaManager
                 );
             }
             return array(
-                'done' => $this->categoriaDao->save($genero)
+                'done' => $this->categoriaDao->save($categoria)
             );
         } catch (\Exception $e) {
             return array(

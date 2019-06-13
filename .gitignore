@@ -1,1 +1,4 @@
 /Backend/vendor/*
+/Backend/logs/*
+/App/vendor/*
+/App/var/*
