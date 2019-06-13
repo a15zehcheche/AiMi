@@ -1,0 +1,85 @@
+{% extends "base.html.twig" %}
+{% block title %}Download{% endblock %}
+{% block main %}
+    <div class="container" id="app">
+        <!-- Page Heading -->
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Factura Nº- <span class="numFactura" data-num-factura="{{ numFactura }}">{{ numFactura }}</span></h1>
+        </div>
+        <a href="http://192.168.205.224:8000/facturaPdf/{{ numFactura }}/download" class="btn btn-primary btn-icon-split btn-sm">
+                    <span class="icon text-white-50">
+                      <i class="fas fa-file-download"></i>
+                    </span>
+            <span class="text">Descarregar</span>
+        </a>
+        <a href="http://192.168.205.224:8000/facturaPdf/{{ numFactura }}/view"  target="blank" class="btn btn-primary btn-icon-split btn-sm">
+                    <span class="icon text-white-50">
+                      <i class="fas fa-eye"></i>
+                    </span>
+            <span class="text">Visualitzar</span>
+        </a>
+        <div class="row">
+            <div class="col-6">
+                <div class="card shadow mb-4 mt-5 border-bottom-info">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary text-uppercase">Imprimir direccio d'enviament</h6>
+                    </div>
+                    <div class="card-body">
+                        <p><span class="font-weight-bold">Direccio: </span>{{ "{{ client._direccion__envio }}" }}</p>
+                        <p><span class="font-weight-bold">Codi Postal: </span>{{ "{{ client._cp }}" }}</p>
+                        <p><span class="font-weight-bold">Ciutat: </span>{{ "{{ client._ciudad__envio }}" }}</p>
+                        <p><span class="font-weight-bold">Provincia: </span>{{ "{{ client._provincia__envio }}" }}</p>
+                        <div class="row">
+                            <div class="col-8 d-flex justify-content-end">
+                                <input type="number" min="1" class="form-control col-5" placeholder="Embalums" v-model="bultos">
+                            </div>
+                            <div class="col-4 d-flex align-items-center">
+                                <button @click="imprimirDireccio()" class="d-none d-sm-inline-block  btn btn-sm btn-primary shadow-sm"><i class="fas fa-print fa-sm text-white-50"></i> Generar direccio</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="card shadow mb-4 mt-5 border-bottom-info">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary text-uppercase">Imprimir direccio d'enviament personalizat</h6>
+                    </div>
+                    <div class="card-body">
+                        <form :action="url">
+                            <input type="text" name="direccio" class="form-control mb-3" placeholder="Direccio...">
+                            <input type="text" name="cp" class="form-control mb-3" placeholder="Codi Postal...">
+                            <input type="text" name="ciutat" class="form-control mb-3" placeholder="Ciutat...">
+                            <input type="text" name="provincia" class="form-control mb-3" placeholder="Provincia...">
+                            <div class="row">
+                                <div class="col-8 d-flex justify-content-end">
+                                    <input type="number" min="1" class="form-control col-5" placeholder="Embalums" v-model="bultos">
+                                </div>
+                                <div class="col-4 d-flex align-items-center">
+                                    <button @click="imprimir()" type="submit" class="d-none d-sm-inline-block  btn btn-sm btn-primary shadow-sm"><i class="fas fa-print fa-sm text-white-50"></i> Generar direccio</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-9"></div>
+            <div class="col-3">
+                <a href="/crearFactura" class="btn btn-primary btn-icon-split mt-5">
+                    <span class="icon text-white-50">
+                      <i class="fas fa-arrow-right"></i>
+                    </span>
+                    <span class="text">Finalitzar factura</span>
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block customjs %}
+    <script type="module" src="/build/js/config.js"></script>
+    <script type="module" src="/build/js/downloadVue.js"></script>
+{% endblock %}
+
+

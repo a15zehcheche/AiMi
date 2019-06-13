@@ -23,7 +23,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 date_default_timezone_set('Europe/Berlin');
-
+session_save_path("/tmp");
 
 // ----------------------------------------------------------------------------------
 // ------------------------------- HEADERS CONFIG -----------------------------------
@@ -61,7 +61,13 @@ $capsule->bootEloquent();
 
 $collector = new RouteCollector();
 
-ActionsRoutes::manageRoutes($collector);
+session_start();
+if(isset($_SESSION["USUARI_NOMBRE"]) && isset($_SESSION["PERMISO"])){
+    ActionsRoutes::manageRoutes($collector);
+    ActionsRoutes::sessionRoutes($collector);
+}else{
+    ActionsRoutes::sessionRoutes($collector);
+}
 
 $despachador = new Dispatcher($collector->getData());
 //$rutaCompleta = $_SERVER["REQUEST_URI"];

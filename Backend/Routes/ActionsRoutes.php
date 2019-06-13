@@ -1,12 +1,14 @@
 <?php
 namespace AiMi\Routes;
 
+use AiMi\Controller\Logger;
 use Phroute\Phroute\RouteCollector;
 use AiMi\Controller\ProductoManager;
 use AiMi\Controller\CategoriaManager;
 Use AiMi\Controller\ProductoTallaManager;
 use AiMi\Controller\GeneroManager;
 use AiMi\Controller\TallaManager;
+use AiMi\Controller\UsuariManager;
 use AiMi\Constants\ConstantsDB;
 class ActionsRoutes
 {
@@ -133,6 +135,36 @@ class ActionsRoutes
         });
         $router->delete($prefix . '/talla/{id}', function ($id) {
             return (new TallaManager())->delete($id);
+        });
+
+    }
+
+    public static function sessionRoutes(RouteCollector $router){
+        $router->post('/login', function () {
+
+            if(isset($_POST["user_name"]) && isset($_POST["user_password"])){
+                Logger::debug($_POST["user_name"]);
+                Logger::debug($_POST["user_password"]);
+                $user_name = $_POST["user_name"];
+                $user_password = $_POST["user_password"];
+                return (new UsuariManager())->login($user_name,$user_password);
+            }else{
+                header('Location: http://localhost:8000/login');
+            }
+
+        });
+        $router->get( '/logout', function () {
+            if(isset($_SESSION["USUARI_NOMBRE"]) && isset($_SESSION["PERMISO"])){
+                unset($_SESSION["USUARI_NOMBRE"]);
+                unset($_SESSION["PERMISO"]);
+                return [
+                    "done" => true
+                ];
+            }else{
+                return [
+                    "done" => false
+                ];
+            }
         });
 
     }

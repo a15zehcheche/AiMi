@@ -1,0 +1,57 @@
+{% extends "base.html.twig" %}
+{% block title %}Lista de devoluciones{% endblock %}
+{% block cssInline %}
+    <style>
+        table{
+            white-space:nowrap;
+        }
+    </style>
+{% endblock %}
+{% block main %}
+    <div class="container-fluid" id="app">
+        <!-- Page Heading -->
+        <h1 class="h3 mb-2 text-gray-800">Listado de devoluciones</h1>
+
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Devoluciones</h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                        <tr>
+                            <th width="50px">Visualitzar</th>
+                            <th>Numero de factura</th>
+                            <th>Fecha</th>
+                            <th>Precio Total</th>
+                        </tr>
+                        </thead>
+                        <tfoot>
+                        <tr>
+                            <th width="50px">Visualitzar</th>
+                            <th>Numero de factura</th>
+                            <th>Fecha</th>
+                            <th>Precio Total</th>
+                        </tr>
+                        </tfoot>
+                        <tbody>
+                        <tr v-for="devolucion in devoluciones">
+                            <td><a :href="'http://192.168.205.224:8000/devolucionPdf/' + devolucion.numFactura + '/view'" target="_blank" class="d-flex justify-content-center align-items-center"><span class="btn btn-danger btn-circle"><i class="fas fa-fw fa-file-pdf"></i></span></a></td>
+                            <td>{{"{{ devolucion.numFactura }}"}}</td>
+                            <td>{{"{{ devolucion.fecha }}"}}</td>
+                            <td>{{"{{ devolucion.preuTotal }}"}}€</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
+{% block customjs %}
+    <script type="module" src="/build/js/config.js"></script>
+    <script type="module" src="/build/js/lists/listDevolVue.js"></script>
+{% endblock %}

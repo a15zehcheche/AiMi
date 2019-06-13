@@ -1,0 +1,87 @@
+{% extends "base.html.twig" %}
+{% block title %}Lista de comerciales{% endblock %}
+{% block cssInline %}
+    <style>
+        table{
+            white-space:nowrap;
+        }
+    </style>
+{% endblock %}
+{% block main %}
+    <div class="container-fluid" id="app">
+        <!-- Page Heading -->
+        <h1 class="h3 mb-2 text-gray-800">Listado de comerciales</h1>
+
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Comerciales</h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                        <tr>
+                            <th width="100px">Funcions</th>
+                            <th>Id</th>
+                            <th>Codigo de comercial</th>
+                            <th>Nombre</th>
+                            <th>Telefono</th>
+                        </tr>
+                        </thead>
+                        <tfoot>
+                        <tr>
+                            <th width="100px">Funcions</th>
+                            <th>Id</th>
+                            <th>Codigo de comercial</th>
+                            <th>Nombre</th>
+                            <th>Telefono</th>
+                        </tr>
+                        </tfoot>
+                        <tbody>
+                        <tr v-for="comercial in comercials">
+                            <td>
+                                <span class=" d-flex justify-content-center align-items-center">
+                                    <span class="mr-1" @click="eliminar(comercial.id)"><span class="btn btn-danger btn-circle"><i class="fas fa-fw fa-trash"></i></span></span>
+                                    <span class="ml-1" @click="seleccionar(comercial.id)" data-toggle="modal" data-target="#exampleModalCenter"><span class="btn btn-info btn-circle"><i class="fas fa-fw fa-edit"></i></span></span>
+                                </span>
+                            </td>
+                            <td>{{"{{ comercial.id }}"}}</td>
+                            <td>{{"{{ comercial._codigo__comercio }}"}}</td>
+                            <td>{{"{{ comercial._nombre__comercial }}"}}</td>
+                            <td>{{"{{ comercial._telefono__comercial }}"}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Editar comercial</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <label class="font-weight-bolder text-label">Nombre</label>
+                            <input type="text" v-model="comercialSelecte._nombre__comercial" class="form-control mb-1">
+                            <label class="font-weight-bolder text-label">Telefono</label>
+                            <input type="text" v-model="comercialSelecte._telefono__comercial" class="form-control mb-1">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <button type="button" @click="guardar(comercialSelecte.id)" class="btn btn-primary" data-dismiss="modal">Guardar cambios</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
+{% block customjs %}
+    <script type="module" src="/build/js/config.js"></script>
+    <script type="module" src="/build/js/lists/listComerVue.js"></script>
+{% endblock %}

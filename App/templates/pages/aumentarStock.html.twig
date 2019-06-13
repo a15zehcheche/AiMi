@@ -1,0 +1,58 @@
+{% extends "base.html.twig" %}
+{% block title %}Stocks{% endblock %}
+{% block main %}
+    <div class="container" id="app">
+        <!-- Page Heading -->
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Stocks</h1>
+        </div>
+
+        <div class="row">
+            <div class="col-xl-6 col-md-10 col-sm-12 mb-4">
+                <div class="card border-bottom-success shadow">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-md-3 text-gray-800 d-flex align-items-center font-weight-bolder"><span>Producto</span></div>
+                            <div class="input-group dropdown no-arrow col-md-9">
+                                <input ref="focus" type="text" v-model="codibarra" @input="BuscarProducte()" class="form-control bg-white border-0 small" placeholder="Codigo de barra" aria-label="Search">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="button" @click="Reset">
+                                        <i class="fas fa-trash fa-sm"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div v-if="producteSeleccionat">
+                            <p><span class="font-weight-bold">Nom: </span>{{ "{{ producteSeleccionat._nombre__producto }}" }}</p>
+                            <p><span class="font-weight-bold">Codigo producto: </span>{{ "{{ producteSeleccionat._codigo__producto }}" }}</p>
+                            <p><span class="font-weight-bold">Stock actual: </span>{{ "{{ producteSeleccionat._stock }}" }}</p>
+                            <div class="row">
+                                <div class="col-8 d-flex justify-content-end">
+                                    <input type="number" min="1" class="form-control col-5" placeholder="Stocks" v-model="stock">
+                                </div>
+                                <div class="col-4 d-flex align-items-center">
+                                    <button @click="aumentar()" class="d-none d-sm-inline-block  btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Aumentar stock</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div v-else-if="codibarra!='' && producteSeleccionat==null">
+                            <h3 class="text-danger">Producto no encontrado</h3>
+                        </div>
+                        <div v-else>
+                            <h4><span class="text-info">Buscar por codigo de barra el producto que quieres sumar stock</span></h4>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block customjs %}
+    <script type="module" src="/build/js/config.js"></script>
+    <script type="module" src="/build/js/stockVue.js"></script>
+{% endblock %}
+
+

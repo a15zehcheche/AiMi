@@ -1,0 +1,63 @@
+{% extends "base.html.twig" %}
+{% block title %}Lista de facturas{% endblock %}
+{% block cssInline %}
+    <style>
+        table{
+            white-space:nowrap;
+        }
+    </style>
+{% endblock %}
+{% block main %}
+    <div class="container-fluid" id="app">
+        <!-- Page Heading -->
+        <h1 class="h3 mb-2 text-gray-800">Listado de facturas</h1>
+
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Facturas</h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                        <tr>
+                            <th width="50px">Visualitzar</th>
+                            <th>Numero de factura</th>
+                            <th>Fecha</th>
+                            <th>Cliente</th>
+                            <th>Comercial</th>
+                            <th>Precio Total</th>
+                        </tr>
+                        </thead>
+                        <tfoot>
+                        <tr>
+                            <th width="50px">Visualitzar</th>
+                            <th>Numero de factura</th>
+                            <th>Fecha</th>
+                            <th>Cliente</th>
+                            <th>Comercial</th>
+                            <th>Precio Total</th>
+                        </tr>
+                        </tfoot>
+                        <tbody>
+                        <tr v-for="factura in facturas">
+                            <td><a :href="'http://192.168.205.224:8000/facturaPdf/' + factura.facturaNumero + '/view'" target="_blank" class="d-flex justify-content-center align-items-center"><span class="btn btn-danger btn-circle"><i class="fas fa-fw fa-file-pdf"></i></span></a></td>
+                            <td>{{"{{ factura.facturaNumero }}"}}</td>
+                            <td>{{"{{ factura.fecha }}"}}</td>
+                            <td>{{"{{ factura.client.NOMBRE_CLIENTE }}"}}</td>
+                            <td>{{"{{ factura.comercial.NOMBRE_COMERCIAL }}"}}</td>
+                            <td>{{"{{ factura.preuTotal }}"}}€</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
+{% block customjs %}
+    <script type="module" src="/build/js/config.js"></script>
+    <script type="module" src="/build/js/lists/listFactVue.js"></script>
+{% endblock %}
