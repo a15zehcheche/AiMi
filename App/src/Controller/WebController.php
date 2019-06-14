@@ -18,6 +18,15 @@ class WebController extends AbstractController
         return $this->render('pages/login.html.twig');
     }
 
+
+    /**
+     * @Route("/profile_setting")
+     */
+    public function userProfile()
+    {
+        return $this->render('pages/user_profile.html.twig');
+    }
+
     /**
      * @Route("/")
      */

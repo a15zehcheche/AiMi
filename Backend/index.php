@@ -67,6 +67,7 @@ if(isset($_SESSION["USUARI_NOMBRE"]) && isset($_SESSION["PERMISO"])){
     ActionsRoutes::sessionRoutes($collector);
 }else{
     ActionsRoutes::sessionRoutes($collector);
+    ActionsRoutes::manageRoutes($collector);
 }
 
 $despachador = new Dispatcher($collector->getData());

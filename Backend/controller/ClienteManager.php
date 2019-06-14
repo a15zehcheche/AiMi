@@ -19,29 +19,7 @@ class ClienteManager
 
     public function save($body)
     {
-        /*
-        "CODIGO_CLIENTE": "123456789",
-    "NOMBRE_CLIENTE": "VICTOR",
-    "NOMBRE_CONTACTO": null,
-    "TELEFONO_CONTACTO": null,
-    "CIF_DNI_NIE": "",
-    "DIRECCION": null,
-    "CP": null,
-    "CIUDAD": null,
-    "PROVINCIA": null,
-    "PAIS": null,
-    "TELEFONO1": null,
-    "TELEFONO2": null,
-    "MOVIL": null,
-    "FAX": null,
-    "EMAIL": null,
-    "DIRECCION_ENVIO": null,
-    "CP_ENVIO": null,
-    "CIUDAD_ENVIO": null,
-    "PROVINCIA_ENVIO": null,
-    "PAIS_ENVIO": null,
-    "DESCUENTO_CLIENTE": null,
-        */
+
         try {
             $cliente = new Cliente();
             $cliente->CODIGO_CLIENTE =  $body->CODIGO_CLIENTE;
@@ -85,8 +63,62 @@ class ClienteManager
             ];
         }
         try {
-            if (array_key_exists('TEXTO', (array)$body)) {
-                $cliente->TEXTO =  $body->TEXTO;
+            if (array_key_exists('CODIGO_CLIENTE', (array)$body)) {
+                $cliente->CODIGO_CLIENTE =  $body->CODIGO_CLIENTE;
+            }
+            if (array_key_exists('NOMBRE_CLIENTE', (array)$body)) {
+                $cliente->NOMBRE_CLIENTE =  $body->NOMBRE_CLIENTE;
+            }
+            if (array_key_exists('NOMBRE_CONTACTO', (array)$body)) {
+                $cliente->NOMBRE_CONTACTO =  $body->NOMBRE_CONTACTO;
+            }
+            if (array_key_exists('TELEFONO_CONTACTO', (array)$body)) {
+                $cliente->TELEFONO_CONTACTO =  $body->TELEFONO_CONTACTO;
+            }
+            if (array_key_exists('CIF_DNI_NIE', (array)$body)) {
+                $cliente->CIF_DNI_NIE =  $body->CIF_DNI_NIE;
+            }
+            if (array_key_exists('DIRECCION', (array)$body)) {
+                $cliente->DIRECCION =  $body->DIRECCION;
+            }
+            if (array_key_exists('CP', (array)$body)) {
+                $cliente->CP =  $body->CP;
+            }
+            if (array_key_exists('CIUDAD', (array)$body)) {
+                $cliente->CIUDAD =  $body->CIUDAD;
+            }
+            if (array_key_exists('PROVINCIA', (array)$body)) {
+                $cliente->PROVINCIA =  $body->PROVINCIA;
+            }
+            if (array_key_exists('TELEFONO1', (array)$body)) {
+                $cliente->TELEFONO1 =  $body->TELEFONO1;
+            }
+            if (array_key_exists('TELEFONO2', (array)$body)) {
+                $cliente->TELEFONO2 =  $body->TELEFONO2;
+            }
+            if (array_key_exists('MOVIL', (array)$body)) {
+                $cliente->MOVIL =  $body->MOVIL;
+            }
+            if (array_key_exists('FAX', (array)$body)) {
+                $cliente->FAX =  $body->FAX;
+            }
+            if (array_key_exists('EMAIL', (array)$body)) {
+                $cliente->EMAIL =  $body->EMAIL;
+            }
+            if (array_key_exists('DIRECCION_ENVIO', (array)$body)) {
+                $cliente->DIRECCION_ENVIO =  $body->DIRECCION_ENVIO;
+            }
+            if (array_key_exists('CP_ENVIO', (array)$body)) {
+                $cliente->CP_ENVIO =  $body->CP_ENVIO;
+            }
+            if (array_key_exists('CIUDAD_ENVIO', (array)$body)) {
+                $cliente->CIUDAD_ENVIO =  $body->CIUDAD_ENVIO;
+            }
+            if (array_key_exists('PROVINCIA_ENVIO', (array)$body)) {
+                $cliente->PROVINCIA_ENVIO =  $body->PROVINCIA_ENVIO;
+            }
+            if (array_key_exists('DESCUENTO_CLIENTE', (array)$body)) {
+                $cliente->DESCUENTO_CLIENTE =  $body->DESCUENTO_CLIENTE;
             }
             return array(
                 'done' => $this->clienteDao->save($cliente)

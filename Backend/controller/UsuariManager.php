@@ -17,10 +17,18 @@ class UsuariManager
         return $this->usuariDao->findAll();
     }
 
-    public function save($body)
+    public function save($body,$imageFile)
     {
+        $usauri = new Usuari();
+        if($imageFile){
+            $imagePath = ImageAlmacenator::getInstance()->saveImage($imageFile);
+        }else{
+            $imagePath = "";
+        }
+
+
         try {
-            $usauri = new Usuari();
+            $usauri->photo_path = $imagePath;
             $usauri->USUARI_NOMBRE =  $body->USUARI_NOMBRE;
             $usauri->USUARI_PASSWORD =  md5($body->USUARI_PASSWORD);
             $usauri->NOMBRE = $body->NOMBRE;
