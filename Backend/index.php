@@ -23,12 +23,12 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 date_default_timezone_set('Europe/Berlin');
-session_save_path("/tmp");
+//session_save_path("/tmp");
 
 // ----------------------------------------------------------------------------------
 // ------------------------------- HEADERS CONFIG -----------------------------------
 // ----------------------------------------------------------------------------------
-header('Access-Control-Allow-Origin: *');
+header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Credentials: false");
 header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
 header('Access-Control-Max-Age: 1000');
@@ -41,7 +41,12 @@ header('Access-Control-Allow-Headers: Content-Type, Content-Range, Content-Dispo
 $capsule = new Capsule;
 
 $capsule->addConnection([
-    "driver"    => "mysql",
+    "dri
+
+//Make this Capsule instance available globally.
+$capsule->setAsGlobal();
+
+// Setup the Eloquent ORM.ver"    => "mysql",
     "host"      => ConstantsDB::DB_SERVER,
     "database"  => ConstantsDB::DB_NAME,
     "username"  => ConstantsDB::DB_USER,
@@ -61,14 +66,21 @@ $capsule->bootEloquent();
 
 $collector = new RouteCollector();
 
-session_start();
+/*session_start();
 if(isset($_SESSION["USUARI_NOMBRE"]) && isset($_SESSION["PERMISO"])){
+    switch ($_SESSION["PERMISO"]){
+        case "ADMINISTRADOR":
+            break;
+    }
     ActionsRoutes::manageRoutes($collector);
     ActionsRoutes::sessionRoutes($collector);
 }else{
     ActionsRoutes::sessionRoutes($collector);
     ActionsRoutes::manageRoutes($collector);
-}
+}*/
+
+ActionsRoutes::manageRoutes($collector);
+ActionsRoutes::sessionRoutes($collector);
 
 $despachador = new Dispatcher($collector->getData());
 //$rutaCompleta = $_SERVER["REQUEST_URI"];
