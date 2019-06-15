@@ -41,12 +41,7 @@ header('Access-Control-Allow-Headers: Content-Type, Content-Range, Content-Dispo
 $capsule = new Capsule;
 
 $capsule->addConnection([
-    "dri
-
-//Make this Capsule instance available globally.
-$capsule->setAsGlobal();
-
-// Setup the Eloquent ORM.ver"    => "mysql",
+    "driver"    => "mysql",
     "host"      => ConstantsDB::DB_SERVER,
     "database"  => ConstantsDB::DB_NAME,
     "username"  => ConstantsDB::DB_USER,
@@ -65,8 +60,8 @@ $capsule->bootEloquent();
 
 
 $collector = new RouteCollector();
-
-/*session_start();
+/*
+session_start();
 if(isset($_SESSION["USUARI_NOMBRE"]) && isset($_SESSION["PERMISO"])){
     switch ($_SESSION["PERMISO"]){
         case "ADMINISTRADOR":
@@ -78,9 +73,8 @@ if(isset($_SESSION["USUARI_NOMBRE"]) && isset($_SESSION["PERMISO"])){
     ActionsRoutes::sessionRoutes($collector);
     ActionsRoutes::manageRoutes($collector);
 }*/
-
-ActionsRoutes::manageRoutes($collector);
 ActionsRoutes::sessionRoutes($collector);
+ActionsRoutes::manageRoutes($collector);
 
 $despachador = new Dispatcher($collector->getData());
 //$rutaCompleta = $_SERVER["REQUEST_URI"];
