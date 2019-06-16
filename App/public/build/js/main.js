@@ -3,7 +3,7 @@ import {config} from '/build/js/config.js';
 
 
 var body = new Vue({
-    el: '#content',
+    el: '#topbar',
     data: {
         user:null,
         host:config.host
