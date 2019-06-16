@@ -221,22 +221,20 @@ class ActionsRoutes
             return (new UsuariManager())->delete($id);
         });
 
+        $router->post( '/actualUser', function () {
+            $body = file_get_contents('php://input');
+            $body = json_decode($body);
+            Logger::debug($body);
 
+            return (new UsuariManager())->getActualUser($body);
+        });
     }
 
     public static function sessionRoutes(RouteCollector $router){
         $router->post('/login', function () {
-
-            if(isset($_POST["user_name"]) && isset($_POST["user_password"])){
-                Logger::debug($_POST["user_name"]);
-                Logger::debug($_POST["user_password"]);
-                $user_name = $_POST["user_name"];
-                $user_password = $_POST["user_password"];
-                return (new UsuariManager())->login($user_name,$user_password);
-            }else{
-                header('Location: http://localhost:8000/login');
-            }
-
+             $body = file_get_contents('php://input');
+             $body = json_decode($body);
+             return (new UsuariManager())->login($body);
         });
         $router->get( '/logout', function () {
             if(isset($_SESSION["USUARI_NOMBRE"]) && isset($_SESSION["PERMISO"])){
@@ -252,6 +250,5 @@ class ActionsRoutes
                 ];
             }
         });
-
     }
 }

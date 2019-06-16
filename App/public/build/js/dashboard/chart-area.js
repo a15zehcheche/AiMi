@@ -20,7 +20,7 @@ var app2 = new Vue({
     top5:[]
   },
   mounted(){
-    this.getFacturas();
+    //this.getFacturas();
 
   },
   methods: {

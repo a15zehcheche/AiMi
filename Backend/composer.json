@@ -4,7 +4,8 @@
         "illuminate/database": "^5.8",
         "phroute/phroute": "^2.1",
         "ext-json": "*",
-        "twig/twig": "^2.11"
+        "twig/twig": "^2.11",
+        "firebase/php-jwt": "^5.0"
     },
     "authors": [
         {

@@ -11,6 +11,14 @@ use Symfony\Component\Routing\Annotation\Route;
 class WebController extends AbstractController
 {
     /**
+     * @Route("/main")
+     */
+    public function main()
+    {
+        return $this->render('pages/main.html.twig');
+    }
+
+    /**
      * @Route("/login")
      */
     public function login()

@@ -11,7 +11,7 @@ var app = new Vue({
         devoluciones:[]
     },
     mounted(){
-        this.getFacturas();
+        //this.getFacturas();
     },
     methods: {
         getFacturas(){

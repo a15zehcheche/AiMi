@@ -4,6 +4,8 @@ namespace AiMi\Controller;
 
 use AiMi\Bbdd\UsuariDao;
 use AiMi\Models\Usuari;
+use AiMi\Constants\ConstantsJWT;
+use Firebase\JWT\JWT;
 
 class UsuariManager
 {
@@ -91,19 +93,65 @@ class UsuariManager
             );
         }
     }
-    public static function login($user_name,$user_password){
-        $usuari = Usuari::where('USUARI_NOMBRE','=', $user_name)
+
+    public function  getActualUser($body){
+        if(!array_key_exists('jwt', (array)$body)){
+            return[
+                'done' => false
+            ];
+        }
+        try {
+            // decode jwt
+            $decoded = JWT::decode($body->jwt, ConstantsJWT::key, array('HS256'));
+
+            return [
+                "message" => "Access granted.",
+                "data" => $decoded->data
+            ];
+        }catch (\Exception $e) {
+            return array(
+                'done' => false,
+                'err' => $e->getMessage(),
+            );
+        }
+    }
+    public function login($body){
+        if(!array_key_exists('user_name', (array)$body) || !array_key_exists('user_password', (array)$body)){
+            return[
+                'done' => false,
+                'date' => null
+            ];
+        }
+
+        $usuari = Usuari::where('USUARI_NOMBRE','=', $body->user_name)
             ->first();
 
-        if($usuari->USUARI_PASSWORD == md5($user_password) ){
-            session_start();
-            $_SESSION["USUARI_NOMBRE"]= $usuari->USUARI_NOMBRE;
-            $_SESSION["PERMISO"]= $usuari->PERMISO;
-            header('Location: http://localhost:8000');
-            return $usuari;
-
+        if(!$usuari){
+            return [
+                'done' => false
+            ];
+        }
+        if($usuari->USUARI_PASSWORD == md5($body->user_password) ){
+            $token = array(
+                "iss" => ConstantsJWT::iat,
+                "aud" => ConstantsJWT::aud,
+                "iat" => ConstantsJWT::iat,
+                "nbf" => ConstantsJWT::nbf,
+                "data" => array(
+                    "ID" => $usuari->ID,
+                    "USUARI_NOMBRE" => $usuari->USUARI_NOMBRE,
+                    "photo_path"=> $usuari->photo_path,
+                    "PERMISO" => $usuari->PERMISO,
+                    "ESTADO" => $usuari->ESTADO
+                )
+            );
+            // generate jwt
+            $jwt = JWT::encode($token, ConstantsJWT::key);
+                return [
+                    "message" => "Successful login.",
+                    "jwt" => $jwt
+                ];
         }else{
-           header('Location: http://localhost:8000/login');
            return [
                 'done' => false
             ];
