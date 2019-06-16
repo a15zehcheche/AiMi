@@ -21,7 +21,7 @@ class UsuariManager
 
     public function save($body,$imageFile)
     {
-        $usauri = new Usuari();
+        $usuari = new Usuari();
         if($imageFile){
             $imagePath = ImageAlmacenator::getInstance()->saveImage($imageFile);
         }else{
@@ -30,13 +30,13 @@ class UsuariManager
 
 
         try {
-            $usauri->photo_path = $imagePath;
-            $usauri->USUARI_NOMBRE =  $body->USUARI_NOMBRE;
-            $usauri->USUARI_PASSWORD =  md5($body->USUARI_PASSWORD);
-            $usauri->NOMBRE = $body->NOMBRE;
-            $usauri->PERMISO =  $body->PERMISO;
+            $usuari->photo_path = $imagePath;
+            $usuari->USUARI_NOMBRE =  $body->USUARI_NOMBRE;
+            $usuari->USUARI_PASSWORD =  md5($body->USUARI_PASSWORD);
+            $usuari->NOMBRE = $body->NOMBRE;
+            $usuari->PERMISO =  $body->PERMISO;
             return array(
-                'done' => $this->usuariDao->save($usauri)
+                'done' => $this->usuariDao->save($usuari)
             );
         } catch (\Exception $e) {
             return array(
@@ -55,17 +55,42 @@ class UsuariManager
             ];
         }
         try {
-            if (array_key_exists('TEXTO', (array)$body)) {
-                $usuari->TEXTO =  $body->TEXTO;
-            } else {
-                return array(
-                    'done' => false,
-                    'message' => 'Require TEXTO'
-                );
+            if (array_key_exists('NOMBRE', (array)$body)) {
+                $usuari->NOMBRE =  $body->NOMBRE;
             }
-            return array(
-                'done' => $this->usuariDao->save($usuari)
+            if (array_key_exists('PASSWORD_OLD', (array)$body) && array_key_exists('PASSWORD_NEW', (array)$body)) {
+                if( $usuari->USUARI_PASSWORD == md5($body->PASSWORD_OLD)){
+                    $usuari->USUARI_PASSWORD =  md5($body->PASSWORD_NEW);
+                }else{
+                    return[
+                        'done' =>false
+                    ];
+                }
+            }
+
+            $token = array(
+                "iss" => ConstantsJWT::iat,
+                "aud" => ConstantsJWT::aud,
+                "iat" => ConstantsJWT::iat,
+                "nbf" => ConstantsJWT::nbf,
+                "data" => array(
+                    "ID" => $usuari->ID,
+                    "USUARI_NOMBRE" => $usuari->USUARI_NOMBRE,
+                    "NOMBRE"=> $usuari->NOMBRE,
+                    "photo_path"=> $usuari->photo_path,
+                    "PERMISO" => $usuari->PERMISO,
+                    "ESTADO" => $usuari->ESTADO
+                )
             );
+            // generate jwt
+            $jwt = JWT::encode($token, ConstantsJWT::key);
+            return [
+                "message" => "Successful login.",
+                "jwt" => $jwt,
+                'done' => $this->usuariDao->save($usuari)
+
+            ];
+
         } catch (\Exception $e) {
             return array(
                 'done' => false,
@@ -140,6 +165,7 @@ class UsuariManager
                 "data" => array(
                     "ID" => $usuari->ID,
                     "USUARI_NOMBRE" => $usuari->USUARI_NOMBRE,
+                    "NOMBRE"=> $usuari->NOMBRE,
                     "photo_path"=> $usuari->photo_path,
                     "PERMISO" => $usuari->PERMISO,
                     "ESTADO" => $usuari->ESTADO

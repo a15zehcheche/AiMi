@@ -220,7 +220,6 @@ class ActionsRoutes
         $router->delete($prefix . '/usuari/{id}', function ($id) {
             return (new UsuariManager())->delete($id);
         });
-
         $router->post( '/actualUser', function () {
             $body = file_get_contents('php://input');
             $body = json_decode($body);
