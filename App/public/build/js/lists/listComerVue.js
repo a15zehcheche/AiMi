@@ -17,10 +17,10 @@ var app = new Vue({
                     console.log(res.comercials)
                     $(document).ready(function() {
                         $.fn.dataTable.ext.errMode = 'none';
-                        $('#example thead tr').clone(true).appendTo( '#example thead' );
-                        $('#example thead tr:eq(1) th').each( function (i) {
+                        $('#dataTable thead tr').clone(true).appendTo( '#dataTable thead' );
+                        $('#dataTable thead tr:eq(1) th').each( function (i) {
                             var title = $(this).text();
-                            $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
+                            $(this).html( '<input class="form-control" type="text" placeholder="Search '+title+'" />' );
 
                             $( 'input', this ).on( 'keyup change', function () {
                                 if ( table.column(i).search() !== this.value ) {
