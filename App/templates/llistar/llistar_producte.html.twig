@@ -28,7 +28,7 @@
                             <th>Codigo de barras</th>
                             <th>Codigo de producto</th>
                             <th>Nombre</th>
-                            <th>Descuento</th>
+                            <th>Genero</th>
                             <th>Precio de compra</th>
                             <th>PVP</th>
                             <th>Cantidad/pack</th>
@@ -44,7 +44,7 @@
                             <th>Codigo de barras</th>
                             <th>Codigo de producto</th>
                             <th>Nombre</th>
-                            <th>Descuento</th>
+                            <th>Genero</th>
                             <th>Precio de compra</th>
                             <th>PVP</th>
                             <th>Cantidad/pack</th>
@@ -61,17 +61,17 @@
                                     <span class="ml-1" @click="seleccionar(producte.id)" data-toggle="modal" data-target="#exampleModalCenter"><span class="btn btn-info btn-circle"><i class="fas fa-fw fa-edit"></i></span></span>
                                 </span>
                             </td>
-                            <td>{{"{{ producte.id }}"}}</td>
-                            <td>{{"{{ producte._codigo__barra }}"}}</td>
-                            <td>{{"{{ producte._codigo__producto }}"}}</td>
-                            <td>{{"{{ producte._nombre__producto }}"}}</td>
-                            <td>{{"{{ producte._descuento__producto }}"}}</td>
-                            <td>{{"{{ producte._precio__compra }}"}}</td>
-                            <td>{{"{{ producte._pvp }}"}}</td>
-                            <td>{{"{{ producte._cantidad__pack }}"}}</td>
-                            <td>{{"{{ producte._categoria }}"}}</td>
-                            <td>{{"{{ producte._stock }}"}}</td>
-                            <td>{{"{{ producte._aviso__stock }}"}}</td>
+                            <td>{{"{{ producte.ID }}"}}</td>
+                            <td>{{"{{ producte.CODIGO_BARRA }}"}}</td>
+                            <td>{{"{{ producte.CODIGO_PRODUCTO }}"}}</td>
+                            <td>{{"{{ producte.DESCRIPCION }}"}}</td>
+                            <td>{{"{{ producte.ID_GENERO }}"}}</td>
+                            <td>{{"{{ producte.PRECIO_COMPRA }}"}}</td>
+                            <td>{{"{{ producte.PVP }}"}}</td>
+                            <td>{{"{{ producte.CANTIDAD_PACK }}"}}</td>
+                            <td>{{"{{ producte.ID_CATEGORIA }}"}}</td>
+                            <td>{{"{{ producte.STOCK }}"}}</td>
+                            <td>{{"{{ producte.AVISO_STOCK }}"}}</td>
                         </tr>
                         </tbody>
                     </table>

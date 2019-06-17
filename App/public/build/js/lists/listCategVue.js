@@ -11,7 +11,7 @@ var app = new Vue({
     methods: {
         getCategorias: function () {
             var res=this
-            axios.get(`${config.host}/api/categorias`)
+            axios.get(`${config.host}/categorias`)
                 .then(function (response) {
                     res.categorias=response.data;
                     console.log(res.categorias)

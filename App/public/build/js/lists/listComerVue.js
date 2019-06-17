@@ -11,13 +11,27 @@ var app = new Vue({
     methods: {
         getComercials: function () {
             var res=this
-            axios.get(`${config.host}/api/comercials`)
+            axios.get(`${config.host}/comercials`)
                 .then(function (response) {
                     res.comercials=response.data;
                     console.log(res.comercials)
                     $(document).ready(function() {
                         $.fn.dataTable.ext.errMode = 'none';
-                        $('#dataTable').DataTable({
+                        $('#example thead tr').clone(true).appendTo( '#example thead' );
+                        $('#example thead tr:eq(1) th').each( function (i) {
+                            var title = $(this).text();
+                            $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
+
+                            $( 'input', this ).on( 'keyup change', function () {
+                                if ( table.column(i).search() !== this.value ) {
+                                    table
+                                        .column(i)
+                                        .search( this.value )
+                                        .draw();
+                                }
+                            } );
+                        } );
+                        var table = $('#dataTable').DataTable({
                             "language" : {
                                 "search": "Buscar:",
                                 "paginate": {
@@ -32,7 +46,9 @@ var app = new Vue({
                             },
                             scrollY: '50vh',
                             scrollCollapse: true,
-                            "scrollX": true
+                            "scrollX": true,
+                            orderCellsTop: true,
+                            fixedHeader: true
                         });
                     });
                 })

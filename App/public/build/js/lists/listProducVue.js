@@ -12,7 +12,7 @@ var app = new Vue({
     methods: {
         getProductes:function () {
             var res=this
-            axios.get(`${config.host}/api/productos`)
+            axios.get(`${config.host}/productos`)
                 .then(function (response) {
                     res.productes=response.data;
                     console.log(res.productes)
@@ -31,7 +31,7 @@ var app = new Vue({
                                 "info": "Mostrando _START_ a _END_ de _TOTAL_ productos",
                                 "infoEmpty": "Mostrando 0 a 0 de 0 productos",
                             },
-                            scrollY: '50vh',
+                            scrollY: false,
                             scrollCollapse: true,
                             "scrollX": true
                         });
