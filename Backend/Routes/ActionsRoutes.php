@@ -2,6 +2,7 @@
 namespace AiMi\Routes;
 
 use AiMi\Controller\Logger;
+use PhpParser\Node\Expr\BinaryOp\LogicalOr;
 use Phroute\Phroute\RouteCollector;
 use AiMi\Controller\ProductoManager;
 use AiMi\Controller\CategoriaManager;
@@ -221,7 +222,12 @@ class ActionsRoutes
         $router->put($prefix.'/usuari/{id}',function($id){
             $body = file_get_contents('php://input');
             $body = json_decode($body);
-            return (new UsuariManager())->update($body,$id);
+            return (new UsuariManager())->update($body,$id,null);
+        });
+        $router->post( '/usuariPhoto/{id}', function ($id) {
+            Logger::debug("image update");
+            Logger::debug($_FILES["photoProfile"]);
+            return (new UsuariManager())->update(null,$id, $_FILES['photoProfile']);
         });
         $router->delete($prefix . '/usuari/{id}', function ($id) {
             return (new UsuariManager())->delete($id);
@@ -229,10 +235,9 @@ class ActionsRoutes
         $router->post( '/actualUser', function () {
             $body = file_get_contents('php://input');
             $body = json_decode($body);
-            Logger::debug($body);
-
             return (new UsuariManager())->getActualUser($body);
         });
+
     }
 
     public static function sessionRoutes(RouteCollector $router){

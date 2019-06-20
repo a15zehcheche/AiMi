@@ -45,7 +45,7 @@ class UsuariManager
             );
         }
     }
-    public function update($body, $id)
+    public function update($body, $id, $imageFile)
     {
         $usuari = Usuari::find($id);
 
@@ -55,6 +55,14 @@ class UsuariManager
             ];
         }
         try {
+            if($imageFile){
+                if($usuari->photo_path && $usuari->photo_path !="/images/anonymous.png"){
+                    ImageAlmacenator::getInstance()->deletePhoto($usuari->photo_path);
+                }
+                $imagePath = ImageAlmacenator::getInstance()->saveImage($imageFile);
+                $usuari->photo_path = $imagePath;
+            }
+
             if (array_key_exists('NOMBRE', (array)$body)) {
                 $usuari->NOMBRE =  $body->NOMBRE;
             }
@@ -87,8 +95,7 @@ class UsuariManager
             return [
                 "message" => "Successful login.",
                 "jwt" => $jwt,
-                'done' => $this->usuariDao->save($usuari)
-
+                'done' => $this->usuariDao->save($usuari),
             ];
 
         } catch (\Exception $e) {

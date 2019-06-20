@@ -50,6 +50,9 @@ class ImageAlmacenator {
     public function uploadPhoto($file, $path) {
         return move_uploaded_file($file, $path);
     }
+    public function deletePhoto($path){
+        unlink(getcwd().$path);
+    }
 
 }
 
