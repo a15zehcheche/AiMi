@@ -1,7 +1,7 @@
 {
     "name": "chen/ai-mi",
     "require": {
-        "illuminate/database": "^5.8",
+        "illuminate/database": "^6.20",
         "phroute/phroute": "^2.1",
         "ext-json": "*",
         "twig/twig": "^2.11",
